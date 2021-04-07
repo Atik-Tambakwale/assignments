@@ -10,6 +10,7 @@ class User extends MY_Controller{
 	public function index()
 	{
 		$this->load->view('user/add_user');
+	
 	}
 	public function insertUserData(){
 			$response=[];
@@ -63,6 +64,10 @@ class User extends MY_Controller{
 			}
 			echo json_encode($response);
 		}
+		public function DisplayProfile()
+		{
+			
+		}
 		public function deleteKSAMember(){
 		$response=[];
 		try{
@@ -87,5 +92,37 @@ class User extends MY_Controller{
 		}
 		echo json_encode($response);
 	}	
+	public function oneDisplayKSAM(){
+		$response=[];
+		try{
+			$auth = $this->token->decodeToken($this->token_verification());
+			
+			$this->db->where('id',$this->input->get('id'))
+				->select('*')
+				->from('ksa_list');
+				
+			$result=$this->db->get();
+			$data=$result->result();
+			
+			if (count($data) > 0) {
+			
+				$response=[
+					'status'=>200,
+					'data'=>$data
+				];
+			}
+				else{
+				$response=[
+					'status'=>200,
+					'msg'=>"display error !"
+				];
+			}
+
+
+		}catch(Exception $e){
+
+		}
+		echo json_encode($response);
+	}
 }
 ?>

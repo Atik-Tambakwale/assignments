@@ -84,7 +84,84 @@ $this->load->view('layout/sidebar');
         </div>
 	</div>	
 </div>
-
+<div class="modal fade" id="view-modal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">KSA Member Details</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="p-4">
+          <h3>Person Details</h3>
+          <table class="table table-bordered">
+            <thead>
+              <th>TITLE</th>
+              <th>NAME</th>
+              <th>EMAIL</th>
+              <th>MOBILE</th>
+             
+            </thead>
+            <tbody>
+                <tr>
+                  <td id="updated_title"></td>
+                  <td id="updated_name"></td>
+                  <td id="updated_emial"></td>
+                  <td id="updated_mobile"></td>
+                 
+                </tr>
+            </tbody>
+          </table>
+          <h3>Location Details</h3>
+          <table class="table table-bordered ">
+            <thead>
+              
+              <th>ADDRESS 1</th>
+              <th>ADDRESS 2</th>
+              <th>ADDRESS 3</th>
+              <th>ADDRESS 4</th>
+              <th>CITY</th>
+              <th>PIN</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td id="updated_address_1"></td>
+                <td id="updated_address_2"></td>
+                <td id="updated_address_3"></td>
+                <td id="updated_address_4"></td>
+                <td id="updated_city"></td>
+                <td id="updated_pin"></td>
+              </tr>
+            </tbody>
+          </table>
+          <h3>Other Details</h3>
+          <table class="table table-bordered">
+            <thead>
+              <th>MONTH</th>
+              <th>YEAR</th>
+              <th>MAGZINE RETURN</th>
+              <th>STOP MAILS</th>
+              <th>EXPIRED</th>
+              <th>HAND DEVELOP</th>
+              <th></th>
+            </thead>
+            <tbody>
+              <td id="updated_month"></td>
+              <td id="updated_year"></td>
+              <td id="updated_mag_return"></td>
+              <td id="updated_stop_mail"></td>
+              <td id="updated_expired"></td>
+              <td id="updated_hand_develop"></td>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
 <?php
 	$this->load->view('layout/footer');
 ?>

@@ -13,6 +13,7 @@ $route['list']='Display_list';
 /* $route['displayPList']='Display_list/display_ksa_list'; */
 $route['displayPList/(:any)']='Display_list/pagination';
 $route['deteleKSAM']="User/deleteKSAMember";
+$route['DisplayKSAM']="User/oneDisplayKSAM";
 
 $route['displayKSAL']='C_list/displayKSAList';
 $route['displaySRCKSA']='C_list/searchDisplayList';

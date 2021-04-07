@@ -120,6 +120,52 @@ $(document).on('click', '.delete-btn', function () {
 	});
 });
 
+$(document).on('click', '.view-btn', function () {
+	var id = $(this).data('view_id');
+
+	$.ajax({
+		type: "GET",
+		dataType: "JSON",
+		url: path + "DisplayKSAM",
+		headers: {
+			"Authorization": $.cookie("jwt")
+		},
+		data: {
+			id
+		},
+		success: function (json) {
+			console.log(json.data);
+			if (json.status == 200) {
+
+				$.each(json.data, function (key, val) {
+					$("#updated_title").html(val.TITLE);
+					$("#updated_name").html(val.NAME);
+					$("#updated_emial").html(val.EMAIL);
+					$("#updated_mobile").html(val.MOBILE);
+					$("#updated_city").html(val.CITY);
+					$("#updated_pin").html(val.PIN);
+					$("#updated_address_1").html(val.ADDRESS_1);
+					$("#updated_address_2").html(val.ADDRESS_2);
+					$("#updated_address_3").html(val.ADDRESS_3);
+					$("#updated_address_4").html(val.ADDRESS_4);
+					$("#updated_month").html(val.MONTH);
+					$("#updated_year").html(val.YEAR);
+					$("#updated_mag_return").html(val.MAGRETURN);
+					$("#updated_stop_mail").html(val.STOPMAIL);
+					$("#updated_expired").html(val.EXPIRED);
+					$("#updated_hand_develop").html(val.HANDDELV);
+				})
+			}
+			else {
+				$.toast({
+					text: json.msg,
+					position: "top-right"
+				})
+			}
+		}
+	})
+});
+
 /* $("p").toggle(
 	function () { $("p").addClass("asc"); },
 	function () { $("p").removeClass("asc").addClass("desc"); },
