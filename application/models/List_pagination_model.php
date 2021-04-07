@@ -8,13 +8,12 @@ class List_pagination_model extends CI_Model{
 		return $query->num_rows();
 	}
 function fetch_details($search,$limit,$start,$colounm_name,$orderby){
-		// echo $colounm_name ."".$orderby;
+	
 		$output='';
 
 		$this->db->like('CITY',$search)->or_like('CITY',$search)->like('ADDRESS_1',$search)->like('ADDRESS_2',$search)->like('ADDRESS_3',$search);
 		$this->db->or_like('NAME',$search)->or_like('TITLE',$search)->like('NAME',$search);
 		$this->db->or_like('PIN',$search);
-		/* $this->db->or_like('NAME',$search); */
 		
 		$this->db->order_by($colounm_name,$orderby);
 		$query=$this->db->limit($limit,$start)
@@ -90,7 +89,7 @@ function fetch_details($search,$limit,$start,$colounm_name,$orderby){
 						<td>'.$row->HANDDELV .'</td>
 						<td>
 							<div class="row " style="font-size: 18px;position: relative;top: 12px;left: 7px;">
-								<a class="view-btn" data-view_id='.$row->id.'><i class="fas fa-eye p-2"></i></a>
+								<a class="view-btn" data-toggle="modal" data-target="#view-modal" data-view_id='.$row->id.'><i class="fas fa-eye p-2"></i></a>
 								<a class="delete-btn" data-delete_id='.$row->id.'><i class="fas fa-trash-alt p-2"></i></a>
 							</div>
 						</td>
